@@ -89,15 +89,13 @@ Library.prototype.findBookBy = function findBookBy(type, value) {
 
 
 Library.prototype.giveBookByName = function giveBookByName(bookName) {
-    let result;
-    this.books.forEach((element,idx) => {
-        if(element.name === bookName) {
-            this.books.splice(idx, 1);
-            result = element;
-        }
-        else {
-            result = null;
-        }
-    });
-    return result;
+    if(element = this.books.find(item => item.name === bookName)) {
+        idx = this.books.findIndex(index => index.name === bookName);
+        this.books.splice(idx, 1);
+        return element;     
+    } else {
+        return null;
+    }
+
+    
 }
