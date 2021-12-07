@@ -75,16 +75,12 @@ Library.prototype.addBook = function addBook(obj) {
 }
 
 Library.prototype.findBookBy = function findBookBy(type, value) {
-    let result;
-    this.books.forEach(element => {
-        if(element[type] === value) {
-            result = element;
-        }
-        else {
-            result = null;
-        }
-    });
-    return result;
+    if(element = this.books.find(item => item[type] === value)) {
+        return element;
+    }
+    else {
+        return null;
+    }
 }
 
 
